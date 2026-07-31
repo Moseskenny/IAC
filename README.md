@@ -63,28 +63,28 @@ An end-to-end Infrastructure as Code (IaC) and Automated Configuration Managemen
 ### 1. Infrastructure Provisioning (`terraform apply`)
 > Terraform successfully provisions the VPC, Subnet, Security Group, and EC2 instance, outputting the live public IP address.
 
-![Terraform Output](./screenshots/terraform-apply.png)
+![Terraform Output](./Screenshots/terminal.png)
 
 ---
 
 ### 2. Configuration Playbook Execution (`ansible-playbook`)
 > Ansible logs into the newly provisioned instance over SSH, installs required dependencies, configures Nginx, and deploys the dashboard.
 
-![Ansible Execution](./screenshots/ansible-run.png)
+![Ansible Execution](./screenshots/wsl_output.png)
 
 ---
 
 ### 3. AWS Management Console Verification
 > Cloud provider validation showing the provisioned EC2 instance active in the `ap-south-1` region.
 
-![AWS EC2 Console](./screenshots/aws-console.png)
+![AWS EC2 Console](./screenshots/ec2.png)
 
 ---
 
 ### 4. Live Environment Verification
 > Web browser accessing the public IP address displaying the live enterprise dashboard.
 
-![Live Web App](./screenshots/dashboard.png)
+![Live Web App](./screenshots/Output.png)
 
 ---
 
