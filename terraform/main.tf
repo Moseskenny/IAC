@@ -1,18 +1,12 @@
 terraform {
-  required_version = ">= 1.5.0"
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
+  required_version = ">= 1.0"
 
-  # NOTE: To use S3 Remote State, create an S3 bucket in AWS, then uncomment this block.
-  # backend "s3" {
-  #   bucket  = "YOUR-BUCKET-NAME-HERE"
-  #   key     = "prod/terraform.tfstate"
-  #   region  = "ap-south-1"
-  # }
+  backend "s3" {
+    bucket         = "YOUR-AWS-S3-BUCKET-NAME" # Replace with your actual S3 bucket name
+    key            = "iac/terraform.tfstate"
+    region         = "us-east-1"               # Replace with your AWS region
+    encrypt        = true
+  }
 }
 
 provider "aws" {
