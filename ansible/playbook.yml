@@ -1,0 +1,37 @@
+---
+- name: Enterprise Web Server Configuration
+  hosts: all
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: Wait for server SSH to become available
+      wait_for_connection:
+        timeout: 300
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Ensure Nginx is running and enabled
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Deploy Validation Dashboard
+      copy:
+        dest: /var/www/html/index.html
+        content: |
+          <html>
+            <head><title>Enterprise Pipeline Success</title></head>
+            <body style="font-family: sans-serif; text-align: center; margin-top: 100px;">
+              <h1 style="color: #2e6c80;">Infrastructure Provisioned!</h1>
+              <p>Terraform Built the Network. Ansible Configured the Server.</p>
+            </body>
+          </html>

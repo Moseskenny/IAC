@@ -1,0 +1,6 @@
+rootkey.csv
+*.csv
+*.tfstate
+*.tfstate.backup
+.terraform/
+
