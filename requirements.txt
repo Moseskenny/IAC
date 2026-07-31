@@ -1,0 +1,4 @@
+checkov
+pytest
+boto3
+
