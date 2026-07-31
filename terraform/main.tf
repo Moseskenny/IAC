@@ -2,9 +2,9 @@ terraform {
   required_version = ">= 1.0"
 
   backend "s3" {
-    bucket  = "YOUR-AWS-S3-BUCKET-NAME" # Replace with your actual S3 bucket name
+    bucket  = "moses-iac2026" # Replace with your actual S3 bucket name
     key     = "iac/terraform.tfstate"
-    region  = "us-east-1" # Replace with your AWS region
+    region  = "ap-south-1" # Replace with your AWS region
     encrypt = true
   }
 }
